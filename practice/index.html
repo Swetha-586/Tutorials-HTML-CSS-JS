@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table + Factorial + Recursion</title>
+</head>
+
+<body>
+
+<form>
+    <!-- TABLE -->
+    Enter n value:
+    <input type="text" id="ip">
+    <input type="button" value="Generate Table" onclick="test()">
+
+    <br><br>
+
+    <!-- FACTORIAL -->
+    Enter some number:
+    <input type="text" id="myip">
+    <input type="button" value="Find Factorial" onclick="fact()">
+
+    <br><br>
+
+    <!-- RECURSION -->
+    Enter number for recursion:
+    <input type="text" id="rec">
+    <input type="button" value="Print Natural Numbers" onclick="printRec()">
+</form>
+
+<br>
+
+<div id="op"></div>
+<div id="output"></div>
+<div id="recOutput"></div>
+
+<script>
+
+// TABLE FUNCTION
+function test() {
+    var n = parseInt(document.getElementById("ip").value);
+    var output = "<table border='1'>";
+
+    for (var i = 1; i <= n; i++) {
+        output += "<tr><td>" + i + "</td></tr>";
+    }
+
+    output += "</table>";
+    document.getElementById("op").innerHTML = output;
+}
+
+
+// FACTORIAL FUNCTION
+function fact() {
+    var a = parseInt(document.getElementById("myip").value);
+    var result = 1;
+
+    for (var i = 1; i <= a; i++) {
+        result = result * i;
+    }
+
+    document.getElementById("output").innerHTML = "Factorial = " + result;
+}
+
+
+// RECURSION FUNCTION
+function recursivePrint(n) {
+    if (n === 0) {
+        return "";
+    }
+
+    return recursivePrint(n - 1) + n + " ";
+}
+
+
+// BUTTON FUNCTION
+function printRec() {
+    var n = parseInt(document.getElementById("rec").value);
+
+    var result = recursivePrint(n);
+
+    document.getElementById("recOutput").innerHTML = "Numbers: " + result;
+}
+
+</script>
+
+</body>
+</html>

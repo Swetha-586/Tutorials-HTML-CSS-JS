@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Digital Clock</title>
+</head>
+<body>
+    <div id="clock-container">
+        <h1>Digital Clock</h1>
+        <h2 id="time-display">00:00:00</h2>
+        <p id="date-display"></p>
+    </div>
+
+    <script>
+        function startClock() {
+            const now = new Date();
+            document.getElementById('time-display').innerHTML = now.toLocaleTimeString();
+            document.getElementById('date-display').innerHTML = now.toDateString();
+        }
+        setInterval(startClock, 1000);
+        startClock();
+    </script>
+</body>
+</html>

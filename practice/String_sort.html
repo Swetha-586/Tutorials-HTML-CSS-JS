@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String Sort</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>🔤 String Sorting</h1></header>
+  <section>
+    <input type="text" id="sortInput" placeholder="Enter words separated by space">
+    <button onclick="sortWords()">Sort Words</button>
+    <div class="output" id="sortOutput"></div>
+  </section>
+  <script>
+    function sortWords() {
+      let str = document.getElementById("sortInput").value;
+      let words = str.split(" ").sort();
+      document.getElementById("sortOutput").innerHTML = "Sorted: " + words.join(" ");
+    }
+  </script>
+</body>
+</html>

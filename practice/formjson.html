@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Form</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f9; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+        .checkbox-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 4px; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Registration Form</h2>
+    <form id="userForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        
+        <label>Date of Birth: <input type="date" id="dob" required></label>
+        
+        <div>
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
+
+        <div>
+            <label>Skills:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" name="skills" value="HTML"> HTML
+                <input type="checkbox" name="skills" value="CSS"> CSS
+                <input type="checkbox" name="skills" value="JavaScript"> JavaScript
+                <input type="checkbox" name="skills" value="Python"> Python
+            </div>
+        </div>
+
+        <button type="submit">Add to Table</button>
+    </form>
+
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Skills</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+</div>
+
+<script>
+    const userForm = document.getElementById('userForm');
+    const userTableBody = document.querySelector('#userTable tbody');
+    const users = []; // This array stores our objects
+
+    userForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // 1. Capture Skills (Checkboxes)
+        const selectedSkills = Array.from(document.querySelectorAll('input[name="skills"]:checked'))
+                                    .map(cb => cb.value);
+
+        // 2. Create the Object
+        const userData = {
+            name: document.getElementById('name').value,
+            dob: document.getElementById('dob').value,
+            gender: document.querySelector('input[name="gender"]:checked').value,
+            skills: selectedSkills.join(', ')
+        };
+
+        // 3. Store the Object
+        users.push(userData);
+
+        // 4. Update the UI
+        renderTable();
+
+        // 5. Reset the form
+        userForm.reset();
+    });
+
+    function renderTable() {
+        // Clear existing rows
+        userTableBody.innerHTML = "";
+
+        // Loop through array and create rows
+        users.forEach(user => {
+            const row = `<tr>
+                <td>${user.name}</td>
+                <td>${user.dob}</td>
+                <td>${user.gender}</td>
+                <td>${user.skills}</td>
+            </tr>`;
+            userTableBody.innerHTML += row;
+        });
+    }
+</script>
+
+</body>
+</html>

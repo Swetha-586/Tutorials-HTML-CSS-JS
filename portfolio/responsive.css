@@ -1,0 +1,181 @@
+/* Responsive CSS for Deep Blue Portfolio */
+
+/* CSS for tablet devices (min-width: 576px and max-width: 820px) */
+@media screen and (min-width: 576px) and (max-width: 820px) { 
+    .logo { 
+        padding: 0 2rem; 
+    } 
+
+    /* Menu links adjust for tablet */
+    .menu { 
+        padding: 0 2rem; 
+    } 
+
+    .menu-list-items {
+        padding: 0 0.5rem;
+    }
+
+    .big-name {
+        font-size: 4rem; /* Slightly smaller for tablets */
+    }
+
+    .about-modern, .skills-modern { 
+        padding: 60px 5%; 
+    } 
+
+    .about-glass-card {
+        padding: 30px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for tablet */
+    }
+} 
+
+/* CSS for mobile devices (min-width: 280px and max-width: 576px) */
+@media screen and (min-width: 280px) and (max-width: 576px) { 
+    .navbar {
+        flex-direction: column; /* Stack logo and menu on very small screens */
+        padding: 10px 0;
+    }
+
+    .logo, .menu { 
+        padding: 0; 
+        text-align: center;
+    } 
+
+    .menu-list {
+        margin-top: 10px;
+        flex-wrap: wrap; /* Allow links to wrap to next line */
+        justify-content: center;
+    }
+
+    /* Hero adjustments for mobile */
+    .hero { 
+        padding: 0 1rem;
+    } 
+
+    .big-name {
+        font-size: 2.8rem; /* Scale down the big name for mobile screens */
+    }
+
+    .greet-heading {
+        font-size: 1.2rem;
+    }
+
+    .sub-heading {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .resume-btn {
+        width: 100%; /* Full width button on mobile */
+        padding: 12px 0;
+    }
+
+    /* About Section adjustments */
+    .about-modern {
+        padding: 40px 5%;
+    }
+
+    .about-heading-neon {
+        font-size: 2rem;
+    }
+
+    .about-glass-card {
+        padding: 20px;
+    }
+
+    .about-description {
+        font-size: 1rem;
+    }
+
+    /* Skills Grid adjustments */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+        gap: 10px;
+    }
+
+    .skill-card {
+        font-size: 0.9rem;
+        padding: 15px 5px;
+    }
+
+    .skills-heading-neon {
+        font-size: 2rem;
+    }
+}
+
+/* Skills Section - Light Template Grid */
+.skills-modern {
+    padding: 80px 10%;
+    background-color: #ffffff; /* Clean white background */
+    text-align: center;
+}
+
+.skills-heading-neon {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #363D73; /* Your Deep Blue color */
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+/* Subtle accent line under title matching About section */
+.skills-heading-neon::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #2794B3; /* Teal accent */
+    border-radius: 2px;
+}
+
+/* Grid Layout for Small Cards */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+}
+
+/* Small Card Styling - Light Theme */
+.skill-card {
+    background: #f8f9fa; /* Very light grey card background */
+    border: 1px solid #e9ecef; /* Subtle border */
+    color: #363D73; /* Deep Blue text */
+    padding: 20px 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+}
+
+/* Hover Effect - Light Blue Glow */
+.skill-card:hover {
+    transform: translateY(-5px);
+    background: #ffffff;
+    border-color: #2794B3; /* Teal border on hover */
+    color: #2794B3; /* Teal text on hover */
+    box-shadow: 0 10px 20px rgba(39, 148, 179, 0.15);
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .skills-heading-neon {
+        font-size: 2.2rem;
+    }
+}

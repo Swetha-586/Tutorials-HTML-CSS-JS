@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Updater</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #display-text {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="display-text">Original Matter</h1>
+
+        <input type="text" id="user-input" placeholder="Type something here...">
+        <button id="submit-btn">Submit</button>
+    </div>
+
+    <script>
+        // 1. Get references to the elements
+        const inputField = document.getElementById('user-input');
+        const submitButton = document.getElementById('submit-btn');
+        const textToChange = document.getElementById('display-text');
+
+        // 2. Add an event listener to the button
+        submitButton.addEventListener('click', function() {
+            // 3. Get the value from the input
+            const newText = inputField.value;
+
+            // 4. Update the heading if the input isn't empty
+            if (newText.trim() !== "") {
+                textToChange.textContent = newText;
+                
+                // Optional: Clear the input after submitting
+                inputField.value = "";
+            } else {
+                alert("Please type something first!");
+            }
+        });
+    </script>
+
+</body>
+</html>

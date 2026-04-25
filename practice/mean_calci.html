@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mean Calculator</title>
+</head>
+<body>
+    <h2>Average Calculator</h2>
+    <p>Enter numbers separated by commas (e.g., 5, 10, 15):</p>
+    
+    <input type="text" id="numInput">
+    <button onclick="getAverage()">Calculate</button>
+
+    <div id="result-area">
+        <p>Result: <span id="finalValue">0</span></p>
+    </div>
+
+    <script>
+        function getAverage() {
+            const input = document.getElementById('numInput').value;
+            const numbers = input.split(',').map(Number);
+            const sum = numbers.reduce((a, b) => a + b, 0);
+            const avg = sum / numbers.length;
+            
+            document.getElementById('finalValue').innerHTML = avg.toFixed(2);
+        }
+    </script>
+</body>
+</html>

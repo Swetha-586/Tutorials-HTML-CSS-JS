@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flower Data Table</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 300px; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+
+    <h2>Flower Collection</h2>
+    
+    <table id="flowerTable">
+        <thead>
+            <tr>
+                <th>Flower</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <script>
+        // 1. Defining the data array
+        const flowerData = [
+            { name: "Rose", color: "Red" },
+            { name: "Lily", color: "White" },
+            { name: "Lavender", color: "Purple" },
+            { name: "Sunflower", color: "Yellow" },
+            { name: "Tulip", color: "Pink" }
+        ];
+
+        // 2. Reference the table body
+        const tableBody = document.querySelector("#flowerTable tbody");
+
+        // 3. Loop through the array and create rows
+        flowerData.forEach(item => {
+            const row = `<tr>
+                            <td>${item.name}</td>
+                            <td>${item.color}</td>
+                         </tr>`;
+            tableBody.innerHTML += row;
+        });
+	let title=document.getElementById("myTitle");
+	let items=document.getElementById("items");
+	let paragraph=document.getEelementById("p");
+	let element=document.getElementById("mytitle");
+	element.remove();
+	document.getElementById("myButton").addEventListener("click")
+    </script>
+
+</body>
+</html>

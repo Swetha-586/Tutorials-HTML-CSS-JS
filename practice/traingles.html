@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Checker</title>
+</head>
+<body>
+    <h1>Triangle Type Checker</h1>
+    <p>Enter the lengths of the three sides:</p>
+
+    <label>Side A:</label>
+    <input type="number" id="sideA"><br><br>
+
+    <label>Side B:</label>
+    <input type="number" id="sideB"><br><br>
+
+    <label>Side C:</label>
+    <input type="number" id="sideC"><br><br>
+
+    <button onclick="checkTriangle()">Check Triangle</button>
+
+    <div id="result-box">
+        <h3>Result:</h3>
+        <p id="resultText">Enter sides to see the result.</p>
+    </div>
+
+    <script>
+        function checkTriangle() {
+            const a = Number(document.getElementById('sideA').value);
+            const b = Number(document.getElementById('sideB').value);
+            const c = Number(document.getElementById('sideC').value);
+            const res = document.getElementById('resultText');
+
+            // Logic to check if it's a valid triangle
+            if (a + b > c && a + c > b && b + c > a) {
+                if (a === b && b === c) {
+                    res.innerHTML = "This is an <b>Equilateral</b> triangle.";
+                } else if (a === b || b === c || a === c) {
+                    res.innerHTML = "This is an <b>Isosceles</b> triangle.";
+                } else {
+                    res.innerHTML = "This is a <b>Scalene</b> triangle.";
+                }
+            } else {
+                res.innerHTML = "These sides <b>cannot</b> form a triangle.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.carousel img {
+    height: 600px;
+    object-fit: cover;
+}
+
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+img {
+    transition: 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
